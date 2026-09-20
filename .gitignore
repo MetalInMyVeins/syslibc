@@ -1,0 +1,6 @@
+build/
+.asm-lsp.toml
+.clangd
+.envrc
+compile_commands.json
+*.o
