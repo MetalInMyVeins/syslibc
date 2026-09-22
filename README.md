@@ -21,6 +21,20 @@ Minimal libc implementation in assembly using linux syscalls.
 - `gcc`: 16.2.1
 - `gtest`: 1.18.0
 
+# Functionality
+
+- [ ] atoi
+- [ ] memcpy
+- [X] memset
+- [ ] strcasecmp
+- [ ] strcmp
+- [ ] strcpy
+- [X] strlen
+- [ ] strncasecmp
+- [ ] strncmp
+- [ ] strncpy
+- [ ] toupper
+
 # LLM Ban
 
 LLMs are completely banned from the project.
