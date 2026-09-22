@@ -7,8 +7,9 @@ extern "C" {
 
 #include "syslibc_stddef.h"
 
-size_t syslibc_strlen(const char*);
+void* syslibc_memcpy(void*, void*, size_t);
 void* syslibc_memset(void*, int, size_t);
+size_t syslibc_strlen(const char*);
 
 #ifdef __cplusplus
 }
