@@ -2,6 +2,6 @@
 
 Minimal libc implementation in assembly using linux syscalls.
 
-# Ban AI
+# LLM Ban
 
-Yes. AI is completely banned from contributing here in any way.
+LLMs are completely banned from the project.
