@@ -16,7 +16,7 @@
 	cmp	r10, rdx
 	je	.end
 
-	mov	[rdi + r10], esi
+	mov	byte [rdi + r10], sil
 	inc	r10
 	jmp	.loop
 
