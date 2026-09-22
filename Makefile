@@ -18,7 +18,8 @@ CFLAGS := \
 
 CXXFLAGS := \
 	-std=c++23 \
-	-pthread
+	-pthread \
+	-Itests/include/
 
 LDFLAGS := \
 	-nostdlib
