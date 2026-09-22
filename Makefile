@@ -56,3 +56,4 @@ clean:
 	rm -rf .cache/
 	rm -rf build/
 	find . -name "*.o" -delete
+	rm -f compile_commands.json
