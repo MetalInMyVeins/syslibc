@@ -29,7 +29,7 @@ Minimal libc implementation in assembly using linux syscalls.
 - [ ] memmove
 - [X] memset
 - [ ] strcasecmp
-- [ ] strcmp
+- [X] strcmp
 - [ ] strcpy
 - [X] strlen
 - [ ] strncasecmp
