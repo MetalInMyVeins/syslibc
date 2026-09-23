@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <cstdlib>
+#include <cstring>
 
 #include "syslibc_string.h"
 
@@ -50,6 +51,18 @@ TEST(String, Memset)
 		EXPECT_EQ(cptr[i], 100);
 	}
 	free(ptr);
+}
+
+TEST(String, Strcmp)
+{
+	const char* s1 = "iamamachine";
+	const char* s2 = "iamamameshshabok";
+	int x = strcmp(s1, s2);
+	int y = syslibc_strcmp(s1, s2);
+	EXPECT_EQ(x, y);
+	x = strcmp(s2, s1);
+	y = syslibc_strcmp(s2, s1);
+	EXPECT_EQ(x, y);
 }
 
 TEST(String, Strlen)
