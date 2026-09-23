@@ -16,12 +16,20 @@ $(LIB_A_TEST): $(LIB_OBJS_TEST)
 TEST_SRCS  := $(shell find tests -name 'test_*.cxx')
 TEST_NAMES := $(basename $(notdir $(TEST_SRCS)))
 
+TEST_OBJS := $(patsubst tests/%.cxx,$(BUILD)/tests/obj/%.o,$(TEST_SRCS))
+
+$(BUILD)/tests/obj/%.o: tests/%.cxx
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
+
+-include $(TEST_OBJS:.o=.d)
+
 BUILD_TESTS := $(addprefix $(BUILD)/tests/,$(TEST_NAMES))
 
 define TEST_template
-$(BUILD)/tests/$(2): $(1) $(LIB_A_TEST)
+$(BUILD)/tests/$(2): $(BUILD)/tests/obj/$(patsubst tests/%.cxx,%.o,$(1)) $(LIB_A_TEST)
 	@mkdir -p $$(@D)
-	$$(CXX) $$(CXXFLAGS) $(1) $$(LIB_A_TEST) $$(GTEST_LIBS) -o $$@
+	$$(CXX) $$(CXXFLAGS) $$^ $$(GTEST_LIBS) -o $$@
 endef
 $(foreach src,$(TEST_SRCS),$(eval $(call TEST_template,$(src),$(basename $(notdir $(src))))))
 
@@ -31,9 +39,9 @@ tests: $(BUILD_TESTS)
 
 TEST_ALL_BIN := $(BUILD)/tests/test_all
 
-$(TEST_ALL_BIN): $(TEST_SRCS) $(LIB_A_TEST)
+$(TEST_ALL_BIN): $(TEST_OBJS) $(LIB_A_TEST)
 	@mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) $(TEST_SRCS) $(LIB_A_TEST) $(GTEST_LIBS) -o $@
+	$(CXX) $(CXXFLAGS) $(TEST_OBJS) $(LIB_A_TEST) $(GTEST_LIBS) -o $@
 
 .PHONY: test_all check
 test_all: $(TEST_ALL_BIN)
