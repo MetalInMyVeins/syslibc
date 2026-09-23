@@ -7,7 +7,7 @@ extern "C" {
 
 #include "stddef.h"
 
-void* memcpy(void*, void*, size_t);
+void* memcpy(void*, const void*, size_t);
 void* memset(void*, int, size_t);
 size_t strlen(const char*);
 
