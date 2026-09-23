@@ -1,11 +1,6 @@
-%ifdef TESTING
-	global syslibc_memset
-	syslibc_memset:
-%else
-	global memset
-	memset:
-%endif
+global memset
 
+memset:
 	push	rbp
 	mov	rbp, rsp
 

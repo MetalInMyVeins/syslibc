@@ -4,6 +4,7 @@ LD := ld.lld
 AR := llvm-ar
 ASM := nasm
 STRIP := strip
+OBJCOPY := objcopy
 
 CFLAGS := \
 	-g \
@@ -42,9 +43,6 @@ AFLAGS_DEB := \
 AFLAGS_REL := \
 	-f \
 	elf64
-
-AFLAGS_TESTING := \
-	-DTESTING
 
 BUILD := build
 

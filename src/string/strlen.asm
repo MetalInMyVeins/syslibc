@@ -1,11 +1,6 @@
-%ifdef TESTING
-	global syslibc_strlen
-	syslibc_strlen:
-%else
-	global strlen
-	strlen:
-%endif
+global strlen
 
+strlen:
 	push	rbp
 	mov	rbp, rsp
 

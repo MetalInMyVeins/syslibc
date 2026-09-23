@@ -1,10 +1,6 @@
-%ifdef TESTING
-	global syslibc_memcmp
-	syslibc_memcmp:
-%else
-	global memcmp
-	memcmp:
-%endif
+global memcmp
+
+memcmp:
 
 	push	rbp
 	mov	rbp, rsp

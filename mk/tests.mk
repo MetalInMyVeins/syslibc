@@ -1,8 +1,12 @@
 LIB_OBJS_TEST := $(patsubst src/%.asm,$(BUILD)/lib_test/%.o,$(LIB_SRCS))
 
+SYMBOL_MAP := mk/syslibc_symbol_map.txt
+
 $(BUILD)/lib_test/%.o: src/%.asm
 	@mkdir -p $(@D)
-	$(ASM) $(AFLAGS_DEB) $(AFLAGS_TESTING) -MD $(@:.o=.d) -MP $< -o $@
+	$(ASM) $(AFLAGS_DEB) -MD $(@:.o=.d) -MP $< -o $@.tmp
+	$(OBJCOPY) --redefine-syms=$(SYMBOL_MAP) $@.tmp $@
+	@rm -f $@.tmp
 
 -include $(LIB_OBJS_TEST:.o=.d)
 
