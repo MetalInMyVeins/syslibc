@@ -18,6 +18,8 @@ CFLAGS := \
 
 CXXFLAGS := \
 	-std=c++23 \
+	-g \
+	-Wall -Wextra -Werror \
 	-pthread \
 	-Itests/include/
 
