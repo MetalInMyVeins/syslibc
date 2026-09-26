@@ -1,6 +1,8 @@
 global memset
+global __memset:function hidden
 
 memset:
+__memset:
 	push	rbp
 	mov	rbp, rsp
 

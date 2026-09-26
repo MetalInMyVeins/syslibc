@@ -1,6 +1,8 @@
 global memcpy
+global __memcpy:function hidden
 
 memcpy:
+__memcpy:
 	push	rbp
 	mov	rbp, rsp
 

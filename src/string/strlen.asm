@@ -1,6 +1,8 @@
 global strlen
+global __strlen:function hidden
 
 strlen:
+__strlen:
 	push	rbp
 	mov	rbp, rsp
 

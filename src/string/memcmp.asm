@@ -1,6 +1,8 @@
 global memcmp
+global __memcmp:function hidden
 
 memcmp:
+__memcmp:
 
 	push	rbp
 	mov	rbp, rsp
