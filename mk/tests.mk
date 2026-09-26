@@ -1,6 +1,6 @@
 LIB_OBJS_TEST := $(patsubst src/%.asm,$(BUILD)/lib_test/%.o,$(LIB_SRCS))
 
-SYMBOL_MAP := mk/syslibc_symbol_map.txt
+SYMBOL_MAP := mk/test_symbol_map.txt
 
 $(BUILD)/lib_test/%.o: src/%.asm
 	@mkdir -p $(@D)
