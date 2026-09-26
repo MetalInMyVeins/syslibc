@@ -24,10 +24,15 @@ Minimal libc implementation in assembly using linux syscalls.
 # Functionality
 
 - [ ] atoi
+- [ ] free
+- [ ] malloc
 - [X] memcmp
 - [X] memcpy
 - [ ] memmove
 - [X] memset
+- [ ] printf
+- [ ] realloc
+- [ ] scanf
 - [ ] strcasecmp
 - [X] strcmp
 - [ ] strcpy
